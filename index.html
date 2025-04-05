@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Attendance - App Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #343a40;
+            line-height: 1.7;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        h1{
+           font-size: 2.2rem;
+        }
+        h2{
+            font-size: 1.8rem
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .support-section {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .support-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        ul li{
+            margin-bottom: 0.7rem;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .faq-answer {
+            margin-bottom: 1.5rem;
+            color: #495057;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #e9ecef;
+            border-radius: 10px;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            width: 100%;
+            max-width: 600px; /* Increased max-width for larger screens */
+            height: auto;  /*maintain aspect ratio*/
+            position: relative;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+        }
+        .slider {
+            display: flex;
+            width: 100%;
+            height: auto; /*maintain aspect ratio*/
+            transition: transform 0.5s ease-in-out;
+            aspect-ratio: 6 / 6;
+        }
+        .slide {
+            min-width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #343a40;
+            aspect-ratio: 6 / 6;
+        }
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Use contain to maintain image aspect ratio */
+            border-radius: 10px;
+        }
+        .slider-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+        }
+        .nav-dot {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nav-dot:hover, .nav-dot.active {
+            background-color: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .slider-container {
+                max-width: 95%;
+            }
+            .support-section {
+                padding: 1.5rem;
+            }
+            ul {
+                margin-left: 1rem;
+            }
+            .contact-info {
+                padding: 1rem;
+            }
+            h1{
+                font-size: 2rem;
+            }
+            h2{
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Added Styles */
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .company-info img {
+            max-height: 120px;
+            margin-top: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .company-description {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #495057;
+            text-align: justify;
+        }
+        .main-activities {
+            margin-top: 2rem;
+        }
+        .main-activities h2 {
+            margin-bottom: 1.5rem;
+        }
+        .main-activities ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .main-activities li {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="company-info">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="font-size: 2rem; font-family: 'Arial', sans-serif; font-weight: bold; color: #2c3e50;">
+                    QMS Technical Service LLC
+                </div>
+                <img src="stamp.jpg" alt="Company Logo" style="max-height: 100px;">
+            </div>
+            <p class="company-description">
+                QMS Technical Services is a reputable MEP company registered under the Security Industry Regulatory Agency (SIRA).
+                With a team of qualified engineers, we specialize in ELV (Extra Low Voltage) systems, electrical installations,
+                home automation, and air conditioning (AC) work. Our commitment to excellence and innovation ensures that we
+                meet and exceed client expectations.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="activty.jpg" alt="Company Logo" style="max-height: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </div>
+
+        <div class="main-activities">
+            <h2>Main Activities</h2>
+            <ul>
+                <li><strong>ELV Systems:</strong> Comprehensive solutions for security, communication, and automation.</li>
+                <li><strong>Electrical Installations:</strong> Safe and efficient electrical systems for residential and commercial properties.</li>
+                <li><strong>Home Automation:</strong> Advanced automation solutions to enhance comfort, security, and energy efficiency.</li>
+                <li><strong>Air Conditioning:</strong> Installation, maintenance, and repair of various AC systems to ensure optimal climate control.</li>
+                <li><strong>Fit-Out Work:</strong> Including plumbing, tiling, and gypsum work for interior solutions.</li>
+            </ul>
+        </div>
+
+        <h1>Universal Attendance Company - App Support</h1>
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="main form App.jpg" alt="Company Logo" style="max-height: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </div>
+
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide"><img src="1.jpg" alt="Slide 1"></div>
+                <div class="slide"><img src="2.jpg" alt="Slide 2"></div>
+                <div class="slide"><img src="3.jpg" alt="Slide 3"></div>
+                <div class="slide"><img src="4.jpg" alt="Slide 4"></div>
+                <div class="slide"><img src="5.jpg" alt="Slide 5"></div>
+                <div class="slide"><img src="6.jpg" alt="Slide 6"></div>
+                <div class="slide"><img src="7.jpg" alt="Slide 7"></div>
+                <div class="slide"><img src="8.jpg" alt="Slide 8"></div>
+            </div>
+            <div class="slider-nav">
+                <div class="nav-dot active"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+            </div>
+        </div>
+
+        <p class="app-description">
+            The Universal Attendance App is a comprehensive solution designed to enhance workforce management across organizations.
+            It features a user-friendly mobile interface, enabling employees to record their attendance effortlessly, and a robust
+            Windows interface for administrative tasks. Through the Windows interface, companies can define their organizational
+            profiles, register branch locations, and manage user roles effectively. This app empowers HR departments by providing
+            real-time data on employee check-ins and check-outs, tracking attendance across branches, and generating detailed
+            reports on tardiness and absenteeism. By integrating mobility and centralized management, the Universal Attendance App
+            simplifies attendance tracking and promotes organizational efficiency.
+        </p>
+
+        <div class="support-section">
+            <h2>Login/Logout Form Issues</h2>
+            <p>If you're experiencing issues with the login or logout form, please try the following:</p>
+            <ul>
+                <li>Ensure you have a stable internet connection.</li>
+                <li>Verify that you are entering the correct username and password.</li>
+                <li>If you've forgotten your password, use the "Forgot Password" option (if available).</li>
+                <li>If you are still having problems, close the app completely and reopen it.</li>
+            </ul>
+        </div>
+
+        <div class="support-section">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <ul>
+                <li>
+                    <div class="faq-question">Q: I cannot log in. What should I do?</div>
+                    <div class="faq-answer">A: Double-check your login credentials and internet connection. If the problem persists, contact support.</div>
+                </li>
+                <li>
+                    <div class="faq-question">Q: How do I log out of the app?</div>
+                    <div class="faq-answer">A: Simply press the "Logout" button on the main screen.</div>
+                </li>
+                <li>
+                    <div class="faq-question">Q: I am having issues with the app crashing.</div>
+                    <div class="faq-answer">A: Please make sure that your application is updated to the most recent version, and if the issue continues, please contact support.</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Support</h2>
+            <p>For further assistance, please contact us at:</p>
+            <p><a href="mailto:info@qmstechnical.com">info@qmstechnical.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const navDots = document.querySelectorAll('.nav-dot');
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+            if (index < 0) {
+                index = slides.length - 1;
+            } else if (index >= slides.length) {
+                index = 0;
+            }
+            currentIndex = index;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateNavDots();
+        }
+
+        function updateNavDots() {
+            navDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        // Automatic sliding
+        setInterval(nextSlide, 5000);
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+
+        // Initial update
+        updateNavDots();
+    </script>
+</body>
+</html>
